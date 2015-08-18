@@ -26,7 +26,7 @@ function checkUsername() {
 			username: username
 		},
 		success: function(dataFromServer) {
-			alert(dataFromServer);
+			$('#username-message').html(dataFromServer);
 		},
 		error: function(){
 			console.log('cannot find the php file');
