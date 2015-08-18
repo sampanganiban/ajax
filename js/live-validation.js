@@ -33,12 +33,4 @@ function checkUsername() {
 		}
 	});
 
-
-
-
-
-
-
-
-
 }
