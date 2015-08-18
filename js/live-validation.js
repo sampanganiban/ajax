@@ -18,4 +18,27 @@ function checkUsername() {
 		$('#username-message').html('');
 	}
 
+	// Send the username to the server
+	$.ajax({
+		type: 'post',
+		url: 'app/validate-username.php',
+		data: {
+			username: username
+		},
+		success: function(dataFromServer) {
+			alert(dataFromServer);
+		},
+		error: function(){
+			console.log('cannot find the php file');
+		}
+	});
+
+
+
+
+
+
+
+
+
 }
