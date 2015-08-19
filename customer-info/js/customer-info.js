@@ -23,7 +23,16 @@ function getCustomerInfo() {
 		},
 		success: function(dataFromServer) {
 
-			alert(dataFromServer);
+			// Create an unordered list
+			var ul = $('<ul>');
+
+			// Insert the data
+			$(ul).append('<li>'+dataFromServer.phone+'</li>');
+			$(ul).append('<li>'+dataFromServer.email+'</li>');
+
+			// Add this new unordered list to the customer-info div
+			$('#customer-info').html(ul);
+
 
 		},
 		error: function() {
@@ -33,12 +42,3 @@ function getCustomerInfo() {
 	});
 
 }
-
-
-
-
-
-
-
-
-
