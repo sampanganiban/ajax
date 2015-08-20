@@ -22,11 +22,13 @@
 			$result = $dbc->query($sql);
 
 			// Loop through results
-			while( $city = $result->fetch_assoc() ) {
-				echo '<option value="'.$city['cityID'].'">';
-				echo $city['cityName'];
-				echo '</option>';
-			}
+			while( $city = $result->fetch_assoc() ) : ?>
+				
+				<option value="<?= $city['cityID']; ?>">
+				<?= $city['cityName']; ?>
+				</option>
+
+			<?php endwhile;
 
 		?>
 	</select>
