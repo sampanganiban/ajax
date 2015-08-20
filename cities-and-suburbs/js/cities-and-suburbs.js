@@ -21,7 +21,19 @@ function showSuburbs() {
 		url: 'app/cities-and-suburbs.php?cityID='+cityID,
 		success: function( dataFromServer ){
 
+			// Preview the data in the console
+			console.log(dataFromServer);
 
+			// Clear the suburb select element
+			$('#suburbs').html('');
+
+			// Loop over each item in the result
+			$(dataFromServer).each(function(i){
+
+				// Create a new option element and append it to the select element
+				$('#suburbs').append('<option>'+dataFromServer[i]+'</option>');
+
+			});
 
 		},
 		error: function(){
