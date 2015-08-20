@@ -33,5 +33,10 @@
 		?>
 	</select>
 
+	<select name="suburbs" id="suburbs"></select>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/cities-and-suburbs.js"></script>
+
 </body>
 </html>
