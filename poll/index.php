@@ -21,9 +21,32 @@
 
 	<button id="vote">Submit your vote</button>
 	<span id="message"></span>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/poll.js"></script>
 
+	<div id="piechart" style="width: 900px; height: 500px;"></div>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript"></script>
+	<script src="js/poll.js"></script>
+      
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>

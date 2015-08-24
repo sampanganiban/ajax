@@ -66,9 +66,9 @@ $dataToSend = [
 	'status' => true,
 	'message' => 'Vote successful!',
 	'pollResults' => [
-		'totalYes' => $result['TotalYes'],
-		'totalNo' => $result['TotalNo'],
-		'totalVotes' => $result['TotalVotes']
+		'totalYes' => (int)$result['TotalYes'],
+		'totalNo' => (int)$result['TotalNo'],
+		'totalVotes' => (int)$result['TotalVotes']
 	]
 ];
 

@@ -23,26 +23,47 @@ $(document).ready(function(){
 				vote: userVote
 			},
 			success: function( dataFromServer ) {
+
 				console.log(dataFromServer);
 
 				$('#message').html( dataFromServer.message );
+                
+                if(dataFromServer.status == true) { 
+                    drawChart(dataFromServer);  
+                }
 
-				
-				
 			},	
 			error: function() {
 				$('#message').html('Sorry, our servers are busy...');
 			}
 		});
 
-
-
-
-
-
-
-
-
 	});
 
+
 });
+
+// Load the Visualization API and the piechart package
+google.load("visualization", "1", {packages:["corechart"]});
+
+// Populate the data
+function drawChart(dataFromServer) {
+
+    var data = google.visualization.arrayToDataTable([
+    // All charts: Columns names must go first, the rest is data
+      ['Vote Type', 'Vote Amount'],
+      ['Yes I liked it',dataFromServer.pollResults.totalYes],
+      ['No I did not like it',dataFromServer.pollResults.totalNo]
+    ]);
+
+    var options = {
+      title: 'Total Votes'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+
+}
+
+
