@@ -2,6 +2,11 @@ google.load("visualization", "1", {packages:["corechart"]});
 
 $(document).ready(function(){
 
+	// If there is a variable called toShow on the page
+	if( toShow != undefined ) {
+		showChart(toShow);
+	}
+
 
 	// Listen for clicks on the vote button
 	$('#vote').click(function(){
@@ -33,7 +38,7 @@ $(document).ready(function(){
 				// If the vote was successful
 				if( dataFromServer.status == true ) {
 
-					showChart( dataFromServer );
+					showChart( dataFromServer.pollResults );
 
 				}
 
@@ -57,15 +62,17 @@ $(document).ready(function(){
 
 });
 
-function showChart( dataFromServer ) {
+function showChart( pollResults ) {
+
+	console.log(pollResults);
 
 	var data = google.visualization.arrayToDataTable([
 		// Column names
 	  	['Vote', 'Count'],
 
 	    // Data
-	    ['Yes',     dataFromServer.pollResults.totalYes],
-	    ['No',     dataFromServer.pollResults.totalNo]
+	    ['Yes',     pollResults.totalYes],
+	    ['No',     pollResults.totalNo]
 	   
 	]);
 
