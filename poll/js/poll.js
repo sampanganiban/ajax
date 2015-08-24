@@ -1,4 +1,7 @@
+google.load("visualization", "1", {packages:["corechart"]});
+
 $(document).ready(function(){
+
 
 	// Listen for clicks on the vote button
 	$('#vote').click(function(){
@@ -27,6 +30,13 @@ $(document).ready(function(){
 
 				$('#message').html( dataFromServer.message );
 
+				// If the vote was successful
+				if( dataFromServer.status == true ) {
+
+					showChart( dataFromServer );
+
+				}
+
 				
 				
 			},	
@@ -46,3 +56,40 @@ $(document).ready(function(){
 	});
 
 });
+
+function showChart( dataFromServer ) {
+
+	var data = google.visualization.arrayToDataTable([
+		// Column names
+	  	['Vote', 'Count'],
+
+	    // Data
+	    ['Yes',     dataFromServer.pollResults.totalYes],
+	    ['No',     dataFromServer.pollResults.totalNo]
+	   
+	]);
+
+	var options = {
+		title: 'Poll Results'
+	};
+
+	// Create the chart
+	var chart = new google.visualization.PieChart(document.getElementById('poll-results-chart'));
+
+	// Display the chart
+	chart.draw(data, options);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

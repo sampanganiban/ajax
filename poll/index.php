@@ -21,8 +21,16 @@
 
 	<button id="vote">Submit your vote</button>
 	<span id="message"></span>
+
+	<div id="poll-results-chart"></div>
+
+	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+
 	<script src="js/poll.js"></script>
 
 </body>
