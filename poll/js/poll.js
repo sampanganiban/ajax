@@ -1,4 +1,12 @@
+google.load("visualization", "1", {packages:["corechart"]});
+
 $(document).ready(function(){
+
+	// If there is a variable called toShow on the page
+	if( toShow != undefined ) {
+		showChart(toShow);
+	}
+
 
 	// Listen for clicks on the vote button
 	$('#vote').click(function(){
@@ -32,6 +40,18 @@ $(document).ready(function(){
                     drawChart(dataFromServer);  
                 }
 
+<<<<<<< HEAD
+=======
+				// If the vote was successful
+				if( dataFromServer.status == true ) {
+
+					showChart( dataFromServer.pollResults );
+
+				}
+
+				
+				
+>>>>>>> aac1f839e8da8501b41641c8fd743751ab575b1a
 			},	
 			error: function() {
 				$('#message').html('Sorry, our servers are busy...');
@@ -67,3 +87,46 @@ function drawChart(dataFromServer) {
 }
 
 
+<<<<<<< HEAD
+=======
+});
+
+function showChart( pollResults ) {
+
+	console.log(pollResults);
+
+	var data = google.visualization.arrayToDataTable([
+		// Column names
+	  	['Vote', 'Count'],
+
+	    // Data
+	    ['Yes',     pollResults.totalYes],
+	    ['No',     pollResults.totalNo]
+	   
+	]);
+
+	var options = {
+		title: 'Poll Results'
+	};
+
+	// Create the chart
+	var chart = new google.visualization.PieChart(document.getElementById('poll-results-chart'));
+
+	// Display the chart
+	chart.draw(data, options);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> aac1f839e8da8501b41641c8fd743751ab575b1a
